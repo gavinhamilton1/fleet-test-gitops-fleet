@@ -1,0 +1,24 @@
+apiVersion: ingress.jpmc.com/v1alpha1
+kind: Fleet
+metadata:
+  name: 7fe4566f-446f-4d72-9c16-8e2ea075eb53
+  namespace: ingress-system
+  labels:
+    app.kubernetes.io/managed-by: management-api
+spec:
+  gatewayType: envoy
+  replicas: 2
+  nodes:
+    - name: "7fe4566f-446f-4d72-9c16-8e2ea075eb53-envoy-1"
+      index: 1
+      datacenter: "us-east-2"
+      region: "us-east-2"
+      status: "running"
+    - name: "7fe4566f-446f-4d72-9c16-8e2ea075eb53-envoy-2"
+      index: 2
+      datacenter: "eu-west-1"
+      region: "eu-west-1"
+      status: "running"
+status:
+  phase: Pending
+  observedGeneration: 0

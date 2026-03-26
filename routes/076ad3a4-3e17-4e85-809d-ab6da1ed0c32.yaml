@@ -1,0 +1,28 @@
+apiVersion: ingress.jpmc.com/v1alpha1
+kind: Route
+metadata:
+  name: 076ad3a4-3e17-4e85-809d-ab6da1ed0c32
+  namespace: ingress-system
+  labels:
+    app.kubernetes.io/managed-by: management-api
+    ingress.jpmc.com/gateway: envoy
+spec:
+  path: "/api/test-route"
+  hostname: "test-gitops.jpm.com"
+  backendUrl: "http://svc-api:8005"
+  gatewayType: envoy
+  audience: "test"
+  team: "platform"
+  authnMechanism: "bearer"
+  authIssuer: "Janus"
+  tlsRequired: true
+  targetFleet: "test-gitops.jpm.com"
+  methods:
+    - GET
+    - POST
+  targetNodes:
+    - k8s-7fe4566f-446f-4d72-9c16-8e2ea075eb53-1
+  healthPath: "/health"
+  notes: "Deployed to fleet Test GitOps Fleet"
+status:
+  phase: Pending

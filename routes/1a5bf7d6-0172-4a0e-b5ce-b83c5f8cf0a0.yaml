@@ -1,0 +1,32 @@
+apiVersion: ingress.jpmc.com/v1alpha1
+kind: Route
+metadata:
+  name: 1a5bf7d6-0172-4a0e-b5ce-b83c5f8cf0a0
+  namespace: ingress-system
+  labels:
+    app.kubernetes.io/managed-by: management-api
+    ingress.jpmc.com/gateway: envoy
+spec:
+  path: "/api/delete-test"
+  hostname: "test-gitops.jpm.com"
+  backendUrl: "http://svc-api:8005"
+  gatewayType: envoy
+  audience: ""
+  team: "platform"
+  authnMechanism: "bearer"
+  authIssuer: "Janus"
+  tlsRequired: true
+  targetFleet: "test-gitops.jpm.com"
+  methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+  targetNodes:
+    - k8s-7fe4566f-446f-4d72-9c16-8e2ea075eb53-1
+    - k8s-7fe4566f-446f-4d72-9c16-8e2ea075eb53-2
+    - k8s-7fe4566f-446f-4d72-9c16-8e2ea075eb53-3
+  healthPath: "/health"
+  notes: "Deployed to fleet Test GitOps Fleet"
+status:
+  phase: Pending

@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/managed-by: management-api
 spec:
   gatewayType: envoy
-  replicas: 2
+  replicas: 4
   nodes:
     - name: "7fe4566f-446f-4d72-9c16-8e2ea075eb53-envoy-1"
       index: 1
@@ -18,6 +18,16 @@ spec:
       index: 2
       datacenter: "eu-west-1"
       region: "eu-west-1"
+      status: "running"
+    - name: "7fe4566f-446f-4d72-9c16-8e2ea075eb53-envoy-3"
+      index: 3
+      datacenter: "ap-southeast-1"
+      region: "ap-southeast-1"
+      status: "running"
+    - name: "7fe4566f-446f-4d72-9c16-8e2ea075eb53-envoy-4"
+      index: 4
+      datacenter: "us-east-1"
+      region: "us-east-1"
       status: "running"
 status:
   phase: Pending
